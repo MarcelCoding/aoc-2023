@@ -14,13 +14,17 @@ fn main() -> io::Result<()> {
     let mut input = String::new();
     stdin.read_line(&mut input)?;
     if input == "\n" {
-      break;
+      if sum == 0 {
+        continue;
+      } else {
+        break;
+      }
     }
 
     let input = input.strip_suffix('\n').unwrap();
 
-    let first = find_first_num(&input);
-    let last = find_last_num(&input).unwrap_or(first);
+    let first = find_first_num(input);
+    let last = find_last_num(input).unwrap_or(first);
 
     let num = first * 10 + last;
     sum += num;

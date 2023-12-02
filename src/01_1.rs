@@ -10,7 +10,11 @@ fn main() -> io::Result<()> {
     let mut input = String::new();
     stdin.read_line(&mut input)?;
     if input == "\n" {
-      break;
+      if sum == 0 {
+        continue;
+      } else {
+        break;
+      }
     }
 
     let mut nums = input.chars().filter(|char| char.is_ascii_digit());
